@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+<!-- Head fragment -->
+</head>
+<body>
+	<header th:insert="fragments/header">
+		<!-- Header Fragment -->
+	</header>
+
+	<main>
+		<div id="index-banner" class="parallax-container">
+			<div class="section no-pad-bot">
+				<div class="container">
+					<br> <br>
+					<h1 class="header center white-text">Continuous teaching</h1>
+					<div class="row center">
+						<h5 class="header col s12 light">A learning platform designed
+							for everyone</h5>
+					</div>
+					<br>
+					<div class="row center">
+						<a th:href="@{/discover}"
+							class="waves-effect waves-light btn-large">Discover it</a>
+					</div>
+					<br> <br>
+				</div>
+			</div>
+			<div class="parallax">
+				<img src="/img/background2.jpg" alt="Unsplash background img 2">
+			</div>
+		</div>
+		<div class="container">
+			<div class="section">
+
+				<!--   Icon Section   -->
+				<div class="row">
+					<div class="col s12 m4">
+						<div class="icon-block">
+							<h2 class="center teal-text text-lighten-2">
+								<i class="material-icons">devices</i>
+							</h2>
+							<h5 class="center">Learn from anywhere</h5>
+
+							<p class="light">Our platform is designed so that you can
+								access it from any device, giving you the necessary tools for
+								your learning from wherever you find.</p>
+						</div>
+					</div>
+
+					<div class="col s12 m4">
+						<div class="icon-block">
+							<h2 class="center teal-text text-lighten-2">
+								<i class="material-icons">group</i>
+							</h2>
+							<h5 class="center">A community you can count on</h5>
+
+							<p class="light">Be part of a large community of people who,
+								like you, seek to improve their skills and constantly acquire
+								knowledge for this constantly changing world evolution.</p>
+						</div>
+					</div>
+
+					<div class="col s12 m4">
+						<div class="icon-block">
+							<h2 class="center teal-text text-lighten-2">
+								<i class="material-icons">local_atm</i>
+							</h2>
+							<h5 class="center">Prices available to everyone</h5>
+
+							<p class="light">Since we focus on that knowledge must be
+								taught on equal terms, we are committed providing you with
+								quality education at very affordable prices.</p>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="parallax-container valign-wrapper">
+			<div class="section no-pad-bot">
+				<div class="container">
+					<div class="row center">
+						<h5 class="header col s12 light">A modern school of
+							vocational training in technology.</h5>
+					</div>
+				</div>
+			</div>
+			<div class="parallax">
+				<img src="/img/background1.jpg" alt="Unsplash background img 1">
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="section">
+
+				<div class="row">
+					<div class="col s12 center">
+						<h4>Contact us</h4>
+						<p class="left-align light">
+							We are a platform that is interested in learning for all people,
+							because we believe in the importance of providing content quality
+							for all interested public, with the purpose of train great
+							professionals and people who are leaders in this countryside. <br>
+							<br> Any questions or queries you may have you can
+							communicate to the mail <a href="mailto:contact@cteaching.com"
+								class="teal-text">contact@cteaching.com</a>, which we will be
+							solving shortly.
+						</p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="parallax-container valign-wrapper">
+			<div class="section no-pad-bot">
+				<div class="container">
+					<div class="row center">
+						<h5 class="header col s12 light">Join us and be part of this
+							great technological revolution.</h5>
+					</div>
+				</div>
+			</div>
+			<div class="parallax">
+				<img src="/img/background3.jpg" alt="Unsplashed background img 3">
+			</div>
+		</div>
+	</main>
+
+	<footer class="page-footer teal" th:insert="fragments/footer">
+		<!-- Footer fragment -->
+	</footer>
+
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="/js/materialize.js"></script>
+	<script src="/js/init.js"></script>
+
+</body>
+</html>
