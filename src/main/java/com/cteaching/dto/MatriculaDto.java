@@ -5,8 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.cteaching.auth.User;
 import com.cteaching.model.Curso;
+import com.cteaching.model.User;
 
 import java.util.Date;
 

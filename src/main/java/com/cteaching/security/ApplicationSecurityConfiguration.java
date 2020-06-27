@@ -14,7 +14,7 @@ import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.cteaching.auth.EzLearningUserDetailsService;
+import com.cteaching.services.EzLearningUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
@@ -50,7 +50,7 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
         http.csrf().disable().headers().frameOptions().disable().and().authorizeRequests()
                 .antMatchers("/", "/index", "/discover", "/cursos", "/h2-console/**", "/api/**","/register", "/css/**",
                  "/js/**",
-                        "/img/**").permitAll()
+                        "/img/**","/courses","/tuteurs").permitAll()
                 .anyRequest().authenticated()
                 .and().formLogin()
                 .loginPage("/login").permitAll()

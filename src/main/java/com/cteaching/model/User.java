@@ -1,4 +1,4 @@
-package com.cteaching.auth;
+package com.cteaching.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,29 +21,29 @@ public class User {
     private String username;
     @Column(name = "password")
     private String password;
-    @Column(name = "nombre")
-    private String nombre;
-    @Column(name = "apellido")
-    private String apellido;
+    @Column(name = "nom")
+    private String nom;
+    @Column(name = "prenom")
+    private String prenom;
     @Column(name = "email")
     private String email;
-    private String detalle;
+    private String detail;
     private String imgurl;
-    @Column(name = "fecha_registro")
-    private LocalDate fecha;
+    @Column(name = "date_inscription")
+    private LocalDate date_inscription;
 
     public User(String username, String password, String nombre, String apellido, String email, String imgurl, LocalDate fecha) {
         this.username = username;
         this.password = password;
-        this.nombre = nombre;
-        this.apellido = apellido;
+        this.nom = nombre;
+        this.prenom = apellido;
         this.email = email;
         this.imgurl = imgurl;
-        this.fecha = fecha;
+        this.date_inscription = fecha;
     }
 
-    public User(String detalle) {
-        this.detalle = detalle;
+    public User(String detail) {
+        this.detail = detail;
     }
 
 	public long getId() {
@@ -70,21 +70,6 @@ public class User {
 		this.password = password;
 	}
 
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
 
 	public String getEmail() {
 		return email;
@@ -94,13 +79,6 @@ public class User {
 		this.email = email;
 	}
 
-	public String getDetalle() {
-		return detalle;
-	}
-
-	public void setDetalle(String detalle) {
-		this.detalle = detalle;
-	}
 
 	public String getImgurl() {
 		return imgurl;
@@ -110,14 +88,39 @@ public class User {
 		this.imgurl = imgurl;
 	}
 
-	public LocalDate getFecha() {
-		return fecha;
+	public String getNom() {
+		return nom;
 	}
 
-	public void setFecha(LocalDate fecha) {
-		this.fecha = fecha;
+	public void setNom(String nom) {
+		this.nom = nom;
 	}
-    
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public LocalDate getDate_inscription() {
+		return date_inscription;
+	}
+
+	public void setDate_inscription(LocalDate date_inscription) {
+		this.date_inscription = date_inscription;
+	}
+
+
     
     
 }

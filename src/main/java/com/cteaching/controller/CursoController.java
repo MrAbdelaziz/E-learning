@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.cteaching.auth.User;
-import com.cteaching.auth.UserRepository;
 import com.cteaching.dto.CursoDto;
 import com.cteaching.model.Curso;
 import com.cteaching.model.Profesor;
+import com.cteaching.model.User;
 import com.cteaching.repositories.CursoRepository;
 import com.cteaching.repositories.MatriculaRepository;
 import com.cteaching.repositories.ProfesorRepository;
+import com.cteaching.repositories.UserRepository;
 import com.cteaching.services.CursoService;
 
 import java.time.LocalDate;

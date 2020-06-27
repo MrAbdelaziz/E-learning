@@ -5,10 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cteaching.model.Curso;
-import com.cteaching.model.Profesor;
-import com.cteaching.services.CursoService;
-import com.cteaching.services.ProfesorService;
+import com.cteaching.model.Formation;
+import com.cteaching.model.Tuteur;
+import com.cteaching.services.FormationService;
+import com.cteaching.services.TuteurService;
 
 import java.util.List;
 
@@ -16,23 +16,37 @@ import java.util.List;
 @RequestMapping("/api")
 public class APIController {
 
-    private ProfesorService profesorService;
-    private CursoService cursoService;
+    private TuteurService profesorService;
+    private FormationService cursoService;
 
     @Autowired
-    public APIController(ProfesorService profesorService, CursoService cursoService) {
+    public APIController(TuteurService profesorService, FormationService cursoService) {
         super();
         this.profesorService = profesorService;
         this.cursoService = cursoService;
     }
 
-    @GetMapping("/profesores")
-    public List<Profesor> getAllProf() {
+    /*@GetMapping("/profesores")
+    public List<Tuteur> getAllProf() {
         return this.profesorService.getAll();
     }
 
     @GetMapping("/cursos")
-    public List<Curso> getAllCurso() {
+    public List<Formation> getAllCurso() {
         return this.cursoService.getAll();
     }
+    
+    */
+    
+    @GetMapping("/tuteurs")
+    public List<Tuteur> getAllProf() {
+        return this.profesorService.getAll();
+    }
+
+    @GetMapping("/formations")
+    public List<Formation> getAllCurso() {
+        return this.cursoService.getAll();
+    }
+    
+    
 }

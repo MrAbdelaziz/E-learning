@@ -1,6 +1,8 @@
-package com.cteaching.auth;
+package com.cteaching.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.cteaching.auth.AuthGroup;
 
 import java.util.List;
 

@@ -2,11 +2,11 @@ CREATE TABLE user (
   user_id BIGINT AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(128) NOT NULL UNIQUE,
   password VARCHAR(256) NOT NULL,
-  nombre VARCHAR(128) NOT NULL,
+  nom VARCHAR(128) NOT NULL,
   apellido VARCHAR(128) NOT NULL,
   email VARCHAR(128) NOT NULL UNIQUE,
-  fecha_registro DATE NOT NULL,
-  detalle VARCHAR(1024),
+  date_inscription DATE NOT NULL,
+  detail VARCHAR(1024),
   imgurl VARCHAR(1024) NOT NULL
 );
 
@@ -48,3 +48,38 @@ CREATE TABLE matricula (
     CONSTRAINT matricula_user_fk FOREIGN KEY(user_id) REFERENCES user(user_id),
     CONSTRAINT matricula_curso_fk FOREIGN KEY(curso_id) REFERENCES curso(curso_id)
 );
+
+
+
+CREATE TABLE tuteur (
+    tuteur_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(128) NOT NULL,
+    prenom VARCHAR(128) NOT NULL,
+    email VARCHAR(128) NOT NULL,
+    description VARCHAR(256) NOT NULL,
+    detail VARCHAR(1024),
+    imgurl VARCHAR(1024) NOT NULL
+);
+
+
+CREATE TABLE formation (
+  formation_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  titre VARCHAR(128) NOT NULL UNIQUE,
+  description VARCHAR(256) NOT NULL,
+  detail VARCHAR(1024) NOT NULL ,
+  difficulte VARCHAR(128) NOT NULL,
+  tuteur_id BIGINT NOT NULL,
+  url VARCHAR(1024) NOT NULL ,
+  imgurl VARCHAR(1024) NOT NULL ,
+  CONSTRAINT formation_fk FOREIGN KEY(tuteur_id) REFERENCES tuteur(tuteur_id)
+);
+
+CREATE TABLE progression (
+    progression_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    formation_id BIGINT NOT NULL,
+    dateins DATE NOT NULL,
+    CONSTRAINT progression_user_fk FOREIGN KEY(user_id) REFERENCES user(user_id),
+    CONSTRAINT progression_formation_fk FOREIGN KEY(formation_id) REFERENCES formation(formation_id)
+);
+

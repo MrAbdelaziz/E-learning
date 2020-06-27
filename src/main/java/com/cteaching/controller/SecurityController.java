@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.cteaching.auth.User;
-import com.cteaching.auth.UserRepository;
-import com.cteaching.model.Matricula;
-import com.cteaching.repositories.MatriculaRepository;
+import com.cteaching.model.Progression;
+import com.cteaching.model.User;
+import com.cteaching.repositories.ProgressionRepository;
+import com.cteaching.repositories.UserRepository;
 import com.cteaching.services.UserServiceImpl;
 
 import java.util.List;
@@ -23,11 +23,11 @@ import java.util.List;
 public class SecurityController {
 
     private UserRepository userRepository;
-    private MatriculaRepository matriculaRepository;
+    private ProgressionRepository matriculaRepository;
     private UserServiceImpl userService;
 
     @Autowired
-    public SecurityController(UserRepository userRepository, MatriculaRepository matriculaRepository, UserServiceImpl userService) {
+    public SecurityController(UserRepository userRepository, ProgressionRepository matriculaRepository, UserServiceImpl userService) {
         this.userRepository = userRepository;
         this.matriculaRepository = matriculaRepository;
         this.userService = userService;
@@ -38,7 +38,7 @@ public class SecurityController {
         try {
             String currentUsername = authentication.getName();
             User user = userRepository.findByUsername(currentUsername);
-            List<Matricula> matriculas = matriculaRepository.findAllByUsuario(user);
+            List<Progression> matriculas = matriculaRepository.findAllByUsuario(user);
             int numCursos = matriculas.size();
             model.addAttribute("user", user);
             model.addAttribute("matriculas", matriculas);
@@ -77,8 +77,8 @@ public class SecurityController {
             User current = userRepository.findById(id_user).get();
             String currentusername = authentication.getName();
             if (currentusername.equals(current.getUsername())) {
-                current.setNombre(user.getNombre());
-                current.setApellido(user.getApellido());
+                current.setNom(user.getNom());
+                current.setPrenom(user.getPrenom());
                 current.setEmail(user.getEmail());
                 current.setImgurl(user.getImgurl());
                 userService.update(current);
@@ -102,7 +102,7 @@ public class SecurityController {
             User current = userRepository.findById(id_user).get();
             String currentusername = authentication.getName();
             if (currentusername.equals(current.getUsername())) {
-                current.setDetalle(user.getDetalle());
+                current.setDetail(user.getDetail());
                 userService.patch(current);
 
                 return "redirect:/profile";

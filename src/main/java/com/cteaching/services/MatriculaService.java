@@ -3,13 +3,13 @@ package com.cteaching.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cteaching.auth.User;
-import com.cteaching.auth.UserRepository;
 import com.cteaching.dto.MatriculaDto;
 import com.cteaching.model.Curso;
 import com.cteaching.model.Matricula;
+import com.cteaching.model.User;
 import com.cteaching.repositories.CursoRepository;
 import com.cteaching.repositories.MatriculaRepository;
+import com.cteaching.repositories.UserRepository;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;

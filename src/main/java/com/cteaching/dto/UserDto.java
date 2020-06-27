@@ -10,10 +10,11 @@ import lombok.NoArgsConstructor;
 public class UserDto {
     private String username;
     private String password;
-    private String nombre;
-    private String apellido;
+    private String nom;
+    private String prenom;
     private String email;
     private String imgurl;
+    
 	public String getUsername() {
 		return username;
 	}
@@ -26,18 +27,7 @@ public class UserDto {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public String getApellido() {
-		return apellido;
-	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -50,7 +40,20 @@ public class UserDto {
 	public void setImgurl(String imgurl) {
 		this.imgurl = imgurl;
 	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getPrenom() {
+		return prenom;
+	}
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
     
+	
     
     
     

@@ -2,9 +2,9 @@ package com.cteaching.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.cteaching.auth.User;
 import com.cteaching.model.Curso;
 import com.cteaching.model.Matricula;
+import com.cteaching.model.User;
 
 import java.util.List;
 

@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.cteaching.auth.User;
-import com.cteaching.auth.UserRepository;
 import com.cteaching.model.Curso;
+import com.cteaching.model.User;
 import com.cteaching.repositories.CursoRepository;
+import com.cteaching.repositories.UserRepository;
 import com.cteaching.services.MatriculaService;
 
 @Controller

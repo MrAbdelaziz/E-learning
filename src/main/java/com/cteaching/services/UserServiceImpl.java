@@ -5,10 +5,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.cteaching.auth.AuthGroup;
-import com.cteaching.auth.AuthGroupRepository;
-import com.cteaching.auth.User;
-import com.cteaching.auth.UserRepository;
 import com.cteaching.dto.UserDto;
+import com.cteaching.model.User;
+import com.cteaching.repositories.AuthGroupRepository;
+import com.cteaching.repositories.UserRepository;
 
 import java.time.LocalDate;
 
@@ -32,8 +32,8 @@ public class UserServiceImpl {
         }
         String username = userDto.getUsername();
         String password = new BCryptPasswordEncoder(11).encode(userDto.getPassword());
-        String nombre = userDto.getNombre();
-        String apellido = userDto.getApellido();
+        String nombre = userDto.getNom();
+        String apellido = userDto.getPrenom();
         String email = userDto.getEmail();
         String imgurl = userDto.getImgurl();
         LocalDate fecha = LocalDate.now();
@@ -50,8 +50,8 @@ public class UserServiceImpl {
     public void update(User user) {
         User current = userRepository.findByUsername(user.getUsername());
 
-        current.setNombre(user.getNombre());
-        current.setApellido(user.getApellido());
+        current.setNom(user.getNom());
+        current.setPrenom(user.getPrenom());
         current.setEmail(user.getEmail());
         current.setImgurl(user.getImgurl());
 
@@ -61,7 +61,7 @@ public class UserServiceImpl {
     public void patch(User user) {
         User current = userRepository.findByUsername(user.getUsername());
 
-        current.setDetalle(user.getDetalle());
+        current.setDetail(user.getDetail());
 
         userRepository.save(current);
     }
