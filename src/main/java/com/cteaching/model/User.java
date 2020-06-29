@@ -46,6 +46,8 @@ public class User {
         this.detail = detail;
     }
 
+    public User() {
+    }
 	public long getId() {
 		return id;
 	}

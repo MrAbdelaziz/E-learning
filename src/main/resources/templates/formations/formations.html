@@ -12,9 +12,9 @@
         <div class="section no-pad-bot">
             <div class="container">
                 <br><br>
-                <h1 class="header center white-text">Cursos</h1>
+                <h1 class="header center white-text">Courses</h1>
                 <div class="row center">
-                    <h5 class="header col s12 light">Explora los cursos que tenemos y matricúlate. </h5>
+                    <h5 class="header col s12 light">Explore the courses we have. </h5>
                 </div>
                 <br><br>
             </div>
@@ -27,18 +27,18 @@
             <div class="col s12 cards-container">
                 <div class="card hoverable" th:each="curso:${cursos}">
                     <div class="card-image">
-                        <a th:href="|/courses/${curso.id_curso}|">
+                        <a th:href="|/courses/${curso.formation_id}|">
                             <img th:src="${curso.imgurl}">
                         </a>
-                        <a th:href="|/courses/${curso.id_curso}|"
+                        <a th:href="|/courses/${curso.formation_id}|"
                            class="btn-floating btn-large halfway-fab waves-effect waves-light red">
-                            <img th:src="${curso.profesor.imgurl}" alt="img instructor" class="responsive-img circle">
+                            <img th:src="${curso.tuteur.imgurl}" alt="img instructor" class="responsive-img circle">
                         </a>
                     </div>
                     <div class="card-content">
-                        <span id="curso-card-title" class="card-title teal-text" th:text="${curso.nomCurso}">Titulo
+                        <span id="curso-card-title" class="card-title teal-text" th:text="${curso.titreFormation}">Title
                         </span>
-                        <p th:text="${curso.descripcionCurso}">Descripcion</p>
+                        <p th:text="${curso.descriptionFormation}">Description</p>
                     </div>
                 </div>
             </div>

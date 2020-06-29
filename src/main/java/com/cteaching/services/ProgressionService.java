@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.cteaching.model.Formation;
 import com.cteaching.model.Progression;
+import com.cteaching.model.Tuteur;
 import com.cteaching.model.User;
 import com.cteaching.repositories.FormationRepository;
 import com.cteaching.repositories.ProgressionRepository;
@@ -38,5 +39,10 @@ public class ProgressionService {
         LocalDate date = LocalDate.now();
         Progression matricula = new Progression(date, user, curso);
         matriculaRepository.save(matricula);
+    }
+    
+    
+    public void delete(Progression progression){
+    	matriculaRepository.delete(progression);
     }
 }

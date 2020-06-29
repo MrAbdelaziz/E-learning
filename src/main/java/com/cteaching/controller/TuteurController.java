@@ -12,8 +12,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cteaching.dto.TuteurDto;
 import com.cteaching.model.Formation;
+import com.cteaching.model.Progression;
 import com.cteaching.model.Tuteur;
 import com.cteaching.repositories.FormationRepository;
+import com.cteaching.repositories.ProgressionRepository;
 import com.cteaching.repositories.TuteurRepository;
 import com.cteaching.services.TuteurService;
 
@@ -26,13 +28,14 @@ public class TuteurController {
     private TuteurService profesorService;
     private TuteurRepository profesorRepository;
     private FormationRepository cursoRepository;
-
+    private ProgressionRepository progressionRepository;
     @Autowired
     public TuteurController(TuteurService profesorService, TuteurRepository profesorRepository,
-    		FormationRepository cursoRepository) {
+    		FormationRepository cursoRepository,ProgressionRepository progressionRepository) {
         this.profesorService = profesorService;
         this.profesorRepository = profesorRepository;
         this.cursoRepository = cursoRepository;
+        this.progressionRepository =progressionRepository;
     }
 
     @GetMapping("/add")
@@ -47,7 +50,7 @@ public class TuteurController {
     public String saveProfesor(TuteurDto profesor) {
         profesorService.create(profesor);
 
-        return "redirect:/profesores";
+        return "redirect:/tuteurs";
     }
 
     @GetMapping("/edit/{id_profesor}")
@@ -78,10 +81,10 @@ public class TuteurController {
             currentProfesor.setDescriptionTuteur(profesor.getDescriptionTuteur());
             currentProfesor.setImgurl(profesor.getImgurl());
 
-            profesorService.update(profesor);
+            profesorService.update(profesor,id_profesor);
             attributes.addAttribute("id_profesor", id_profesor);
 
-            return "redirect:/profesores/{id_profesor}";
+            return "redirect:/tuteurs/{id_profesor}";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);
@@ -98,7 +101,7 @@ public class TuteurController {
             profesorService.patch(current);
 
             attributes.addAttribute("id_profesor", id_profesor);
-            return "redirect:/profesores/{id_profesor}";
+            return "redirect:/tuteurs/{id_profesor}";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);
@@ -119,9 +122,20 @@ public class TuteurController {
     public String deleteProfesor(@PathVariable Long id_profesor, Model model) {
         try {
         	Tuteur profesorActual = profesorRepository.findById(id_profesor).get();
-            profesorService.delete(profesorActual);
-
-            return "redirect:/profesores";
+            
+        	
+        	//delete cascade
+        	List<Formation> listform = cursoRepository.findAllByTuteur(profesorActual);
+       	 for(Formation formation : listform){
+       		 List<Progression> listprog = progressionRepository.findAllByFormation(formation);
+       		 for(Progression progression : listprog){
+       			 progressionRepository.delete(progression);
+       		 }
+       		cursoRepository.delete(formation);
+    	    }
+        	
+        	profesorService.delete(profesorActual);
+            return "redirect:/tuteurs";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);

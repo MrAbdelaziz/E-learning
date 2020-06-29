@@ -5,57 +5,58 @@
 </head>
 <body>
 <header th:insert="fragments/header"></header>
+
 <main>
     <div class="container">
-        <h3 class="center">Curso Nuevo</h3>
+        <h3 class="center">Edit Course</h3>
         <br>
         <div class="row">
             <div class="section col s12 l6 offset-l3">
                 <form action="#" method="post"
                       th:object="${curso}"
-                      th:action="@{/courses/add/{id_profesor} (id_profesor=${profesor.id_profesor})}"
+                      th:action="@{/courses/edit/{tuteur_id}/{formation_id} (tuteur_id=${curso.tuteur.tuteur_id}, formation_id=${curso.formation_id})}"
                 >
 
                     <div class="input-field">
-                        <label for="nom_curso">Nombre de Curso</label>
+                        <label for="nom_curso">Course Title</label>
                         <input type="text" class="class-controller"
                                id="nom_curso"
-                               th:field="*{nomCurso}" autofocus required
+                               th:field="*{titreFormation}" autofocus
                         >
                     </div>
 
                     <div class="input-field">
-                        <select th:field="*{dificultad}" id="dificultad" required>
+                        <select th:field="*{difficulteFormation}" id="dificultad" required>
                             <option th:value="'Facil'" th:text="Facil"></option>
-                            <option th:value="'Intermedio'" th:text="Intermedio"></option>
-                            <option th:value="'Avanzado'" th:text="Avanzado"></option>
+                            <option th:value="'Intermediate'" th:text="Intermediate"></option>
+                            <option th:value="'Advanced'" th:text="Advanced"></option>
                         </select>
-                        <label>Dificultad</label>
+                        <label>Difficulty</label>
                     </div>
 
                     <div class="input-field">
-                        <label for="descripcion_curso">Descripción</label>
+                        <label for="descripcion_curso">Description</label>
                         <input type="text" class="class-controller"
                                id="descripcion_curso"
-                               th:field="*{descCurso}" required
+                               th:field="*{descriptionFormation}"
                         >
                     </div>
 
                     <div class="input-field">
-                        <label for="detalle-curso">Detalle</label>
-                        <textarea th:field="*{detalle}" id="detalle-curso" class="materialize-textarea" required></textarea>
+                        <label for="detalle-curso">Detail</label>
+                        <textarea th:field="*{detailFormation}" id="detalle-curso" class="materialize-textarea" required></textarea>
                     </div>
 
                     <div class="input-field">
-                        <label for="urlcurso">URL Curso</label>
+                        <label for="urlcurso">Course URL</label>
                         <input type="text" class="class-controller"
                                id="urlcurso"
-                               th:field="*{url}" required
+                               th:field="*{urlFormation}" required
                         >
                     </div>
 
                     <div class="input-field">
-                        <label for="urlimagen">URL Imagen Curso</label>
+                        <label for="urlimagen">Course Picture</label>
                         <input type="text" class="class-controller"
                                id="urlimagen"
                                th:field="*{imgurl}" required
@@ -63,16 +64,16 @@
                     </div>
 
                     <button type="submit" class="btn">
-                        Confirmar
+                        Confirm
                     </button>
-                    <a th:href="@{/profesores/{id_profesor} (id_profesor=${profesor.id_profesor})}" class="btn red lighten-1">Atras</a>
-
+                    <a th:href="@{/courses/{formation_id} (formation_id=${curso.formation_id})}" class="btn red lighten-1">Cancel</a>
                 </form>
             </div>
         </div>
     </div>
 </main>
 <br><br>
+
 <footer class="page-footer teal" th:insert="fragments/footer">
 
 </footer>

@@ -8,7 +8,8 @@
 
 <main>
     <div class="container">
-        <h3 class="center">Nuevo Usuario</h3>
+        <h3 class="center">Create a new account</h3>
+<h5 class="center">It's quick and easy.</h5>
         <br>
         <div class="row">
             <div class="section col s12 l6 offset-l3">
@@ -21,16 +22,16 @@
                     </div>
                     <br>
                     <div class="input-field">
-                        <label for="nombre">Nombre</label>
+                        <label for="nom">Last name</label>
                         <input type="text" class="class-controller"
-                               id="nombre" th:field="*{nombre}" required autofocus
+                               id="nom" th:field="*{nom}" required autofocus
                         >
                     </div>
 
                     <div class="input-field">
-                        <label for="apellido">Apellido</label>
+                        <label for="prenom">First name</label>
                         <input type="text" class="class-controller"
-                               id="apellido" th:field="*{apellido}" required
+                               id="prenom" th:field="*{prenom}" required
                         >
                     </div>
 
@@ -42,27 +43,27 @@
                     </div>
 
                     <div class="input-field">
-                        <label for="imgurl">URL Imagen de Perfil</label>
+                        <label for="imgurl">Picture</label>
                         <input type="text" class="class-controller" id="imgurl" th:field="*{imgurl}"
                         required>
                     </div>
 
                     <div class="input-field">
-                        <label for="username">Usuario</label>
+                        <label for="username">Username</label>
                         <input type="text" class="class-controller"
                                id="username" th:field="*{username}" required
                         >
                     </div>
 
                     <div class="input-field mb-5">
-                        <label for="password">Contraseña</label>
+                        <label for="password">Password</label>
                         <input type="password" class="class-controller"
                                id="password" th:field="*{password}" required
                         >
                     </div>
 
                     <button type="submit" class="btn right">
-                        Registrarse
+                        Sign up
                     </button>
                 </form>
             </div>

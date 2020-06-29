@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.cteaching.dto.FormationDto;
 import com.cteaching.model.Formation;
+import com.cteaching.model.Progression;
 import com.cteaching.model.Tuteur;
 import com.cteaching.model.User;
 import com.cteaching.repositories.FormationRepository;
@@ -52,7 +53,7 @@ public class FormationController{
             Tuteur current = profesorRepository.findById(id_profesor).get();
             model.addAttribute("curso", new FormationDto());
             model.addAttribute("profesor", current);
-            return "cursos/curso-add";
+            return "formations/curso-add";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);
@@ -67,7 +68,7 @@ public class FormationController{
             Tuteur current = profesorRepository.findById(id_profesor).get();
             curso.setTuteur(current);
             cursoService.create(curso);
-            return "redirect:/cursos";
+            return "redirect:/courses";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);
@@ -82,7 +83,7 @@ public class FormationController{
         try {
             Formation cursoActual = cursoRepository.findById(id_curso).get();
             model.addAttribute("curso", cursoActual);
-            return "cursos/curso-edit";
+            return "formations/curso-edit";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);
@@ -101,7 +102,7 @@ public class FormationController{
             cursoService.update(curso, id_curso);
             attributes.addAttribute("id_curso", id_curso);
 
-            return "redirect:/cursos/{id_curso}";
+            return "redirect:/courses/{id_curso}";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);
@@ -113,7 +114,7 @@ public class FormationController{
     public String getCursosList(Model model) {
         List<Formation> cursos = cursoService.getAll();
         model.addAttribute("cursos", cursos);
-        return "cursos/cursos";
+        return "formations/formations";
     }
 
     @GetMapping("/delete/{id_curso}")
@@ -121,9 +122,22 @@ public class FormationController{
     public String deleteCurso(@PathVariable Long id_curso, Model model) {
         try {
         	Formation cursoActual = cursoRepository.findById(id_curso).get();
+        	
+        	
+        	//delete cascade
+       		 List<Progression> listprog = matriculaRepository.findAllByFormation(cursoActual);
+       		 for(Progression progression : listprog){
+       			matriculaRepository.delete(progression);
+       		 }
+       		
+        	
+        	
+        	
+        	
+        	
             cursoService.delete(cursoActual);
 
-            return "redirect:/cursos";
+            return "redirect:/courses";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);
@@ -144,7 +158,7 @@ public class FormationController{
             }
             model.addAttribute("curso", curso);
             model.addAttribute("matriculado", matriculado);
-            return "cursos/curso-detail";
+            return "formations/curso-detail";
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", e);

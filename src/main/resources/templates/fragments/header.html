@@ -2,8 +2,8 @@
     <div class="nav-wrapper container">
         <a id="logo-container" href="/" class="brand-logo white-text">C-Teaching</a>
         <ul class="right hide-on-med-and-down">
-            <li><a th:href="@{/cursos}" class="white-text">courses</a></li>
-            <li><a th:href="@{/profesores}" class="white-text">Teachers</a></li>
+            <li><a th:href="@{/courses}" class="white-text">courses</a></li>
+            <li><a th:href="@{/tuteurs}" class="white-text">Teachers</a></li>
             <!--Dropdown-->
             <li sec:authorize="isAnonymous()"><a class="dropdown-trigger" href="#" data-target="logindd">Log In
             </a></li>
@@ -11,8 +11,8 @@
                     class="material-icons">account_circle</i></a></li>
         </ul>
         <ul id="nav-mobile" class="sidenav teal darken-2">
-            <li><a th:href="@{/cursos}" class="white-text">courses</a></li>
-            <li><a th:href="@{/profesores}" class="white-text">Teachers</a></li>
+            <li><a th:href="@{/courses}" class="white-text">courses</a></li>
+            <li><a th:href="@{/tuteurs}" class="white-text">Teachers</a></li>
             <li sec:authorize="isAnonymous()"><a th:href="@{/login}" class="white-text">Sign In</a></li>
             <li sec:authorize="isAnonymous()"><a th:href="@{/register}" class="white-text">Sign up</a></li>
             <li sec:authorize="isAuthenticated()"><a th:href="@{/profile}" class="white-text">Profile</a></li>

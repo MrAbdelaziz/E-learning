@@ -21,22 +21,22 @@
                         </i><span th:text="${user.username}"></span></div>
                         <div class="collapsible-body" th:switch="${numCursos}">
                             <div th:case="'0'">
-                                Sin cursos.
+                                Without courses.
                             </div>
                             <div th:case="'1'">
-                                Matriculado en 1 curso.
+                                Enrolled in 1 course.
                             </div>
                             <div th:case="*">
-                                Matriculado en <span th:text="${numCursos}"></span> cursos.</div>
+                                enrolled in <span th:text="${numCursos}"></span> courses.</div>
                             </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">drafts</i>Correo</div>
+                        <div class="collapsible-header"><i class="material-icons">drafts</i>Email</div>
                         <div class="collapsible-body"><span th:text="${user.email}">Correo del usuario</span></div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><i class="material-icons">event_note</i>Fecha de Registro</div>
-                        <div class="collapsible-body">Alumno desde <span th:text="${user.fecha}">Fecha</span></div>
+                        <div class="collapsible-header"><i class="material-icons">event_note</i>Registration date</div>
+                        <div class="collapsible-body">Student from <span th:text="${user.date_inscription}">Fecha</span></div>
                     </li>
                 </ul>
             </div>
@@ -45,18 +45,18 @@
                 <div class="card z-depth-3">
                     <div class="card-content teal lighten-2 white-text">
                         <span class="card-title"><strong
-                                th:text="${user.nombre} + ' ' + ${user.apellido}"></strong>
+                                th:text="${user.nom} + ' ' + ${user.prenom}"></strong>
                             <a sec:authorize="isAuthenticated()" th:href="@{/user/edit/{id_user} (id_user=${user.id})}"
                             class="btn-floating btn-small yellow waves-effect waves-light">
                                 <i class="material-icons">edit</i>
                             </a>
                         </span>
-                        <p th:if="${user.detalle}">
-                            <span th:text="${user.detalle}"></span>
+                        <p th:if="${user.detail}">
+                            <span th:text="${user.detail}"></span>
                             <a class="btn-floating btn-small red lighten-1 waves-effect waves-light modal-trigger" href="#modal-detalle"><i class="material-icons">edit</i></a>
                         </p>
                         <!-- Modal Trigger -->
-                        <p th:unless="${user.detalle}">
+                        <p th:unless="${user.detail}">
                             <a class="btn-floating red lighten-1 btn-small modal-trigger" href="#modal-detalle"><i class="material-icons">add</i></a>
                         </p>
                         <!-- Modal Sctructure -->
@@ -64,33 +64,33 @@
                             <form th:action="@{user/patch/{id_user} (id_user=${user.id})}" method="post" th:object="${user}">
 
                                 <div class="modal-content">
-                                    <h4 class="teal-text">Cuéntanos sobre ti</h4>
+                                    <h4 class="teal-text">Tell us about yourself</h4>
                                     <div class="input-field">
-                                        <label for="detalle-user">Detalle</label>
-                                        <textarea th:field="*{detalle}" id="detalle-user" class="materialize-textarea"></textarea>
+                                        <label for="detalle-user">detail</label>
+                                        <textarea th:field="*{detail}" id="detalle-user" class="materialize-textarea"></textarea>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#!" class="modal-close waves-effect waves-red btn-flat red-text">Cancelar</a>
+                                    <a href="#!" class="modal-close waves-effect waves-red btn-flat red-text">Cancel</a>
                                     <button type="submit" class="modal-close waves-effect waves-green btn-flat teal-text">
-                                        Confirmar</button>
+                                        Confirm</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="card-action">
                         <!-- Cursos -->
-                        <h5 class="teal-text mb-4">Cursos Matriculados</h5>
+                        <h5 class="teal-text mb-4">Enrolled Courses</h5>
                         <div th:switch="${numCursos}">
                             <div th:case="'0'" class="mb-3">
-                                Todavía no está matriculado en ningún curso.
+                                You are not yet enrolled in any course.
                             </div>
                             <div th:case="*">
                                 <div class="mb-3" th:each="matricula:${matriculas}">
-                                    <a th:href="|/cursos/${matricula.curso.id_curso}|"><strong
-                                            th:text="${matricula.curso.nomCurso}">Cursos
+                                    <a th:href="|/courses/${matricula.formation.formation_id}|"><strong
+                                            th:text="${matricula.formation.titreFormation}">Cursos
                                     </strong> Dictado por <strong
-                                            th:text="${matricula.curso.profesor.nomProfesor} + ' ' + ${matricula.curso.profesor.apeProfesor}"></strong> desde <strong th:text="${matricula.fecha_matricula}"></strong></a>
+                                            th:text="${matricula.formation.tuteur.nomTuteur} + ' ' + ${matricula.formation.tuteur.prenomTuteur}"></strong> desde <strong th:text="${matricula.date_progression}"></strong></a>
                                 </div>
                             </div>
                         </div>

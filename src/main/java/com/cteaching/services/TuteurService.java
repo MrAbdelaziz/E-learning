@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cteaching.dto.TuteurDto;
+import com.cteaching.model.Formation;
+import com.cteaching.model.Progression;
 import com.cteaching.model.Tuteur;
-import com.cteaching.repositories.TuteurRepository;
+import com.cteaching.repositories.*;
 
 import java.util.List;
 
@@ -13,7 +15,9 @@ import java.util.List;
 public class TuteurService {
 
     private TuteurRepository profesorRepository;
-
+    private ProgressionRepository progressionRepository;
+    private FormationRepository formationrepository;
+    
     @Autowired
     public TuteurService(TuteurRepository profesorRepository) {
         this.profesorRepository = profesorRepository;
@@ -34,8 +38,8 @@ public class TuteurService {
         return profesorRepository.findAll();
     }
 
-    public void update(Tuteur profesor) {
-    	Tuteur currentProfesor = profesorRepository.findById(profesor.getTuteur_id()).get();
+    public void update(Tuteur profesor, Long id_prof) {
+    	Tuteur currentProfesor = profesorRepository.findById(id_prof).get();
 
         currentProfesor.setNomTuteur(profesor.getNomTuteur());
         currentProfesor.setPrenomTuteur(profesor.getPrenomTuteur());
@@ -54,7 +58,7 @@ public class TuteurService {
         profesorRepository.save(current);
     }
 
-    public void delete(Tuteur profesor) {
+    public void delete(Tuteur profesor){
         profesorRepository.delete(profesor);
     }
 

@@ -40,4 +40,40 @@ public class Progression {
     public Progression() {
 		super();
 	}
+
+	public Long getProgression_id() {
+		return progression_id;
+	}
+
+	public void setProgression_id(Long progression_id) {
+		this.progression_id = progression_id;
+	}
+
+	public LocalDate getDate_progression() {
+		return date_progression;
+	}
+
+	public void setDate_progression(LocalDate date_progression) {
+		this.date_progression = date_progression;
+	}
+
+	public User getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(User usuario) {
+		this.usuario = usuario;
+	}
+
+	public Formation getFormation() {
+		return formation;
+	}
+
+	public void setFormation(Formation formation) {
+		this.formation = formation;
+	}
+    
+    
+    
+    
 }
