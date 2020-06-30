@@ -7,56 +7,47 @@
 
 <main>
     <div class="container">
-        <h3 class="center">New Teacher</h3>
+        <h3 class="center">Awesome</h3>
         <br>
         <div class="row">
             <div class="section col s12 l6 offset-l3">
-                <form action="#" method="post"
-                      th:object="${profesor}"
-                      th:action="@{/tuteurs/save}"
+                <form action="#" method="POST"
+                th:object="${profesor}"
+                      th:action="@{/tuteurs/get_auteur_priv}"
                 >
 
-                    <div class="input-field">
-                        <label for="nom_profesor">First name</label>
-                        <input type="text" class="class-controller"
-                               id="nom_profesor"
-                               th:field="*{nom}" autofocus required
-                        >
-                    </div>
+                   
 
-                    <div class="input-field">
-                        <label for="ape_profesor">Last name</label>
-                        <input type="text" class="class-controller"
-                               id="ape_profesor"
-                               th:field="*{prenom}" required
-                        >
-                    </div>
+                               
+                           
+    
 
-                    <div class="input-field">
-                        <label for="correo_profesor">Email</label>
-                        <input type="text" class="class-controller"
-                               id="correo_profesor"
-                               th:field="*{email}" required
-                        >
-                    </div>
-
-                    <div class="input-field">
-                        <label for="descripcion_profesor">Descripción</label>
+     <div th:if="${isexsist}">
+            <blockquote>
+                  You are already a teacher
+           </blockquote>
+                    <a th:href="@{/tuteurs}" class="btn red lighten-1">go Back</a>
+    </div>
+    
+     <div th:if="${isnotexsist}">
+            <blockquote>
+                                You are one click away to become the best teacher on our platform
+           </blockquote>
+                  <div class="input-field">
+                        <label for="descripcion_profesor">Specialty</label>
                         <input type="text" class="class-controller"
                                id="descripcion_profesor"
                                th:field="*{description}" required
                         >
                     </div>
-
-                    <div class="input-field">
-                        <label for="imgurl">Picture url</label>
-                        <input type="text" class="class-controller" id="imgurl" th:field="*{imgurl}" required>
-                    </div>
-
                     <button type="submit" class="btn">
                         Confirm
                     </button>
                     <a th:href="@{/tuteurs}" class="btn red lighten-1">Cancel</a>
+    </div>
+
+
+
 
                 </form>
             </div>

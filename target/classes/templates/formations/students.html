@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+</head>
+
+<body>
+<header th:insert="fragments/header">
+</header>
+
+<main>
+
+    <div class="section">
+        <div th:switch="profesores" class="container">
+            <div th:case="*" class="row">
+                <div class="col s12 center">
+                    <h4>Participated Students List</h4>
+                    <br>
+                    <table class="highlight responsive-table">
+                        <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">first name</th>
+                            <th scope="col">last name</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Description</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="profesor : ${userlist}">
+
+                            <th scope="row" th:text="${profesor.id}"></th>
+                            <td th:text="${profesor.nom}"></td>
+                            <td th:text="${profesor.prenom}"></td>
+                            <td th:text="${profesor.email}"></td>
+                            <td th:text="${profesor.detail}"></td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<br><br>
+
+<footer class="page-footer teal" th:insert="fragments/footer">
+
+</footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
+
+</body>
+</html>

@@ -1,12 +1,14 @@
 -- INSERTAR USUARIOS
 INSERT INTO user (username, password, nom, prenom, email, date_inscription, imgurl) VALUES
 ('Abdelaziz', '$2a$11$ADtR0oWyRi/Bd8kP3rvD9.lBlbCK5TOw8tm1oyhB2zv426maNbSge', 'Edwin', 'Dominguez',
- 'edwindominguez@hotmail.com', '2019-09-10', 'https://i.imgur.com/T0n0PH9.jpg'),
-('demo', '$2a$11$ADtR0oWyRi/Bd8kP3rvD9.lBlbCK5TOw8tm1oyhB2zv426maNbSge', 'demo', 'test', 'demo@demo.com', '2019-09-10', 'https://i.imgur.com/k4k1fOM.png');
+ 'edwindominguez@hotmail.com', '2019-09-10', 'https://avatars2.githubusercontent.com/u/60048840?s=400&u=8d2d2aa745f1411903a25cba2fd843e928207d50&v=4'),
+('demo', '$2a$11$ADtR0oWyRi/Bd8kP3rvD9.lBlbCK5TOw8tm1oyhB2zv426maNbSge', 'demo', 'test', 'demo@demo.com', '2019-09-10', 'https://i.imgur.com/k4k1fOM.png'),
+('demo1', '$2a$11$ADtR0oWyRi/Bd8kP3rvD9.lBlbCK5TOw8tm1oyhB2zv426maNbSge', 'demo', 'test', 'demo@demo2.com', '2019-09-10', 'https://i.imgur.com/k4k1fOM.png');
 -- INSERTAR ROLES
 INSERT INTO auth_user_group (username, auth_group) VALUES('Abdelaziz', 'USER');
 INSERT INTO auth_user_group (username, auth_group) VALUES('Abdelaziz', 'ADMIN');
 INSERT INTO auth_user_group (username, auth_group) VALUES('demo', 'USER');
+INSERT INTO auth_user_group (username, auth_group) VALUES('demo1', 'USER');
 -- INSERTAR PROFESORES
 INSERT INTO tuteur (nom, prenom, email, description, detail, imgurl) VALUES
 ( 'Esteban', 'Fernandez', 'efernandez@gmail.com', 'Profesor de Java', 'Soy Ingeniero en InformÃ¡tica y me gusta mucho compartir mis conocimientos y experiencia como programador. He trabajado en numerosas empresas de Argentina, Estados Unidos y EspaÃ±a. Cuento con 2 aÃ±os de experiencia dando clases en los siguientes temas: Internet, Java, Microsoft Office, C#, Visual Basic y SQL Server, tanto en empresas y como a alumnos particulares.', 'https://i.imgur.com/hhuQ4yc.jpg'),

@@ -10,9 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.cteaching.model.Formation;
 import com.cteaching.model.Progression;
+import com.cteaching.model.Tuteur;
 import com.cteaching.model.User;
+import com.cteaching.repositories.FormationRepository;
 import com.cteaching.repositories.ProgressionRepository;
+import com.cteaching.repositories.TuteurRepository;
 import com.cteaching.repositories.UserRepository;
 import com.cteaching.services.UserServiceImpl;
 
@@ -25,12 +29,16 @@ public class SecurityController {
     private UserRepository userRepository;
     private ProgressionRepository matriculaRepository;
     private UserServiceImpl userService;
+    private TuteurRepository profesorRepository;
+    private FormationRepository cursoRepository;
 
     @Autowired
-    public SecurityController(UserRepository userRepository, ProgressionRepository matriculaRepository, UserServiceImpl userService) {
+    public SecurityController(UserRepository userRepository, ProgressionRepository matriculaRepository, UserServiceImpl userService, FormationRepository cursoRepository, TuteurRepository profesorRepository) {
         this.userRepository = userRepository;
         this.matriculaRepository = matriculaRepository;
         this.userService = userService;
+        this.cursoRepository=cursoRepository;
+        this.profesorRepository=profesorRepository;
     }
 
     @GetMapping("/profile")
@@ -43,6 +51,16 @@ public class SecurityController {
             model.addAttribute("user", user);
             model.addAttribute("matriculas", matriculas);
             model.addAttribute("numCursos", numCursos);
+            
+           Tuteur profesorActual = profesorRepository.findByemailTuteur(user.getEmail());
+            if(profesorActual !=null) {
+                   String isexsist ="oui";
+                   List<Formation> cursos = cursoRepository.findAllByTuteur(profesorActual);
+                  model.addAttribute("cursos", cursos);
+	         	  model.addAttribute("isexsist", isexsist);
+	         	  model.addAttribute("profesor", profesorActual);
+            }
+            
             return "user/profile";
         } catch (Exception e) {
             e.printStackTrace();

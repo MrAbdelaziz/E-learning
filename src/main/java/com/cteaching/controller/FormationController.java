@@ -23,6 +23,7 @@ import com.cteaching.repositories.UserRepository;
 import com.cteaching.services.FormationService;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -47,7 +48,7 @@ public class FormationController{
     }
 
     @GetMapping("/add/{id_profesor}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public String addCurso(@PathVariable Long id_profesor, Model model) {
         try {
             Tuteur current = profesorRepository.findById(id_profesor).get();
@@ -62,7 +63,7 @@ public class FormationController{
     }
 
     @PostMapping("/add/{id_profesor}")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public String saveCurso(@PathVariable Long id_profesor, FormationDto curso, Model model) {
         try {
             Tuteur current = profesorRepository.findById(id_profesor).get();
@@ -165,4 +166,26 @@ public class FormationController{
             return "error";
         }
     }
+    
+    @GetMapping("/{id_curso}/students")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public String getstudebts(@PathVariable Long id_curso, Authentication authentication, Model model) {
+    	
+    	          //List<Formation> cursos = cursoService.getAll();
+                 //model.addAttribute("cursos", cursos);
+                //return "formations/formations";
+    	       //List<User> profesores = profesorService.getAll();
+              //model.addAttribute("profesores", profesores);
+    	
+    	Formation cursoActual = cursoRepository.findById(id_curso).get();
+    	List<Progression> listprog = matriculaRepository.findAllByFormation(cursoActual);
+    	ArrayList<User> userlist = new ArrayList<User>();
+  		 for(Progression progression : listprog){
+  			userlist.add(progression.getUsuario());		 
+  		 }
+    	
+  		model.addAttribute("userlist", userlist);
+  		 return "formations/students";
+    }
+    
 }

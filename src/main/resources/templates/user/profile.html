@@ -95,6 +95,20 @@
                             </div>
                         </div>
                     </div>
+                    <div th:if="${isexsist}">
+	                    <div class="card-action">
+	                        <!-- Cursos -->
+	                        <h5 class="teal-text mb-4">Courses <span>
+	                            <a th:href="@{/courses/add/{tuteur_id} (tuteur_id=${profesor.tuteur_id})}" class="btn-floating btn-small waves-effect waves-light lighten-1"><i class="material-icons">add</i></a>
+	                        </span>
+	                        </h5>
+	                        <div class="mb-3" th:each="curso:${cursos}">
+	                            <a th:href="|/courses/${curso.formation_id}|"><strong th:text="${curso.titreFormation}">Cursos</strong></a>
+	                            <a th:href="|/courses/${curso.formation_id}/students|"><strong>Students list</strong></a>
+	                        </div>
+	                    </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
