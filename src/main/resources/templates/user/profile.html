@@ -103,8 +103,9 @@
 	                        </span>
 	                        </h5>
 	                        <div class="mb-3" th:each="curso:${cursos}">
-	                            <a th:href="|/courses/${curso.formation_id}|"><strong th:text="${curso.titreFormation}">Cursos</strong></a>
-	                            <a th:href="|/courses/${curso.formation_id}/students|"><strong>Students list</strong></a>
+	                             <a th:href="|/courses/${curso.formation_id}|"><strong th:text="${curso.titreFormation}">Cursos</strong></a>
+	                             <a th:href="|/courses/${curso.formation_id}/students|"><strong>Students list</strong></a>
+	                             <a th:href="|/quiz/add/step1/${curso.formation_id}/|"><strong>Add Quiz</strong></a>
 	                        </div>
 	                    </div>
                     </div>

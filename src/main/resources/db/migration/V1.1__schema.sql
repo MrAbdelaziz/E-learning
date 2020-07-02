@@ -50,3 +50,19 @@ CREATE TABLE progression (
     CONSTRAINT progression_formation_fk FOREIGN KEY(formation_id) REFERENCES formation(formation_id)
 );
 
+CREATE TABLE quiz (
+  quiz_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  titre VARCHAR(128) NOT NULL UNIQUE,
+  description VARCHAR(256) NOT NULL,
+  formation_id BIGINT NOT NULL,
+  nbrquestions int(6) NOT NULL,
+  CONSTRAINT quiz_fk FOREIGN KEY(formation_id) REFERENCES formation(formation_id)
+);
+
+CREATE TABLE question (
+  question_id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  text VARCHAR(128) NOT NULL UNIQUE,
+  quiz_id int(6) NOT NULL,
+  CONSTRAINT question_fk FOREIGN KEY(quiz_id) REFERENCES quiz(quiz_id)
+);
+

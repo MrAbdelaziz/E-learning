@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+
+</head>
+<body>
+	<header th:insert="fragments/header"></header>
+	<main>
+		<div class="container">
+			<h3 class="center">Questions :</h3>
+			<br>
+			<div class="row">
+				<div class="section col s12 l6 offset-l3">
+
+					<form action="/quiz/add/step3" method="get">
+						<div class="input-field">
+							<label for="text">Question 1:</label> <input type="text"
+								class="class-controller" id="text" name="q1" required>
+						</div>
+
+
+						<div class="input-field">
+							<label for="text">Question 2:</label> <input type="text"
+								class="class-controller" id="text"  name="q2" required>
+						</div>
+						
+						
+						<div class="input-field">
+							<label for="text">Question 3:</label> <input type="text"
+								class="class-controller" id="text" name="q3" required>
+						</div>
+						
+						
+						<div class="input-field">
+							<label for="text">Question 4:</label> <input type="text"
+								class="class-controller" id="text" name="q4" required>
+						</div>
+
+
+						<button type="submit" class="btn">Next</button>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<br>
+	<br>
+	<footer class="page-footer teal" th:insert="fragments/footer">
+
+	</footer>
+
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="/js/materialize.js"></script>
+	<script src="/js/init.js"></script>
+</body>
+</html>

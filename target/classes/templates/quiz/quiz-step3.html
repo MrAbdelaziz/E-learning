@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+
+</head>
+<body>
+	<header th:insert="fragments/header"></header>
+	<main>
+	
+		<div class="container">
+		
+			<h3 class="center">Answers :</h3>
+			<br>
+			<div class="row">
+				<div class="section col s12 l6 offset-l3">
+				<div class="row">
+						<div class="input-field">
+							<label for="text">Question 1:</label> <input type="text"
+								class="class-controller" id="text" th:value="*{q1}" name="q1" disabled>
+						</div>
+						
+						<div class="row">
+						<label for="text">rep 1:</label> <input type="text"
+								class="class-controller" id="text" name="q1" >
+								
+								<label for="text">rep 2:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+								
+								<label for="text">rep 3:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+								
+								<label for="text">rep 4:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+						</div>
+				
+						    <p>
+						    <label for="text">select the correct answer:</label></br>
+						      <label>
+						        <input name="group1" type="radio" checked />
+						        <span>r1</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input name="group1" type="radio" />
+						        <span>r2</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input class="with-gap" name="group1" type="radio"  />
+						        <span>r3</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input class="with-gap" name="group1" type="radio"  />
+						        <span>r4</span>
+						      </label>
+						    </p>
+				</div>
+
+						<div class="row">
+						<div class="input-field">
+							<label for="text">Question 2:</label> <input type="text"
+								class="class-controller" id="text" th:value="*{q2}" name="q1" disabled>
+						</div>
+						
+						<div class="row">
+						<label for="text">rep 1:</label> <input type="text"
+								class="class-controller" id="text" name="q1" >
+								
+								<label for="text">rep 2:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+								
+								<label for="text">rep 3:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+								
+								<label for="text">rep 4:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+						</div>
+				
+						    <p>
+						    <label for="text">select the correct answer:</label></br>
+						      <label>
+						        <input name="group2" type="radio" checked />
+						        <span>r1</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input name="group2" type="radio" />
+						        <span>r2</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input class="with-gap" name="group2" type="radio"  />
+						        <span>r3</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input class="with-gap" name="group2" type="radio"  />
+						        <span>r4</span>
+						      </label>
+						    </p>
+				</div>
+
+
+
+<div class="row">
+						<div class="input-field">
+							<label for="text">Question 3:</label> <input type="text"
+								class="class-controller" id="text" th:value="*{q3}" name="q1" disabled>
+						</div>
+						
+						<div class="row">
+						<label for="text">rep 1:</label> <input type="text"
+								class="class-controller" id="text" name="q1" >
+								
+								<label for="text">rep 2:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+								
+								<label for="text">rep 3:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+								
+								<label for="text">rep 4:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+						</div>
+				
+						    <p>
+						    <label for="text">select the correct answer:</label></br>
+						      <label>
+						        <input name="group3" type="radio" checked />
+						        <span>r1</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input name="group3" type="radio" />
+						        <span>r2</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input class="with-gap" name="group3" type="radio"  />
+						        <span>r3</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input class="with-gap" name="group3" type="radio"  />
+						        <span>r4</span>
+						      </label>
+						    </p>
+				</div>
+				
+				<div class="row">
+						<div class="input-field">
+							<label for="text">Question 4:</label> <input type="text"
+								class="class-controller" id="text" th:value="*{q4}" name="q1" disabled>
+						</div>
+						
+						<div class="row">
+						<label for="text">rep 1:</label> <input type="text"
+								class="class-controller" id="text" name="q1" >
+								
+								<label for="text">rep 2:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+								
+								<label for="text">rep 3:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+								
+								<label for="text">rep 4:</label> <input type="text"
+								class="class-controller" id="text" name="q2" >
+						</div>
+				
+						    <p>
+						    <label for="text">select the correct answer:</label></br>
+						      <label>
+						        <input name="group4" type="radio" checked />
+						        <span>r1</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input name="group4" type="radio" />
+						        <span>r2</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input class="with-gap" name="group4" type="radio"  />
+						        <span>r3</span>
+						      </label>
+						    </p>
+						    <p>
+						      <label>
+						        <input class="with-gap" name="group4" type="radio"  />
+						        <span>r4</span>
+						      </label>
+						    </p>
+				</div>
+				<from action="http://localhost:8080/profile" method="get">
+						<button type="submit" class="btn"><a href="http://localhost:8080/profile">done</a></button>
+					</from>
+
+				</div>
+			</div>
+		</div>
+	</main>
+	<br>
+	<br>
+	<footer class="page-footer teal" th:insert="fragments/footer">
+
+	</footer>
+
+	<!--  Scripts-->
+	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="/js/materialize.js"></script>
+	<script src="/js/init.js"></script>
+</body>
+</html>
